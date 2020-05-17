@@ -32,6 +32,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.начатьЗановоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.паузаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -54,6 +58,31 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.начатьЗановоToolStripMenuItem,
+            this.паузаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(484, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // начатьЗановоToolStripMenuItem
+            // 
+            this.начатьЗановоToolStripMenuItem.Name = "начатьЗановоToolStripMenuItem";
+            this.начатьЗановоToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.начатьЗановоToolStripMenuItem.Text = "Начать заново";
+            this.начатьЗановоToolStripMenuItem.Click += new System.EventHandler(this.OnAgainButtonClick);
+            // 
+            // паузаToolStripMenuItem
+            // 
+            this.паузаToolStripMenuItem.Name = "паузаToolStripMenuItem";
+            this.паузаToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.паузаToolStripMenuItem.Text = "Пауза";
+            this.паузаToolStripMenuItem.Click += new System.EventHandler(this.OnPauseButtonClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -61,10 +90,14 @@
             this.ClientSize = new System.Drawing.Size(484, 561);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Tetris";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,6 +108,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem начатьЗановоToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem паузаToolStripMenuItem;
     }
 }
 

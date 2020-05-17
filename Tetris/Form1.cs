@@ -127,15 +127,10 @@ namespace Tetris
                 currentShape.ResetShape(3,0);
                 if (Collide())
                 {
-                    for (int i = 0; i < 16; i++)
-                    {
-                        for (int j = 0; j < 8; j++)
-                        {
-                            map[i, j] = 0;
-                        }
-                    }
+                    ClearMap();
                     timer1.Tick -= new EventHandler(update);
                     timer1.Stop();
+                    MessageBox.Show("Ваш результат: " + score);
                     Init();
                 }
             }
@@ -321,6 +316,40 @@ namespace Tetris
             DrawGrid(e.Graphics);
             DrawMap(e.Graphics);
             ShowNextShape(e.Graphics);
+        }
+
+        private void OnPauseButtonClick(object sender, EventArgs e)
+        {
+            var pressedButton = sender as ToolStripMenuItem;
+            if (timer1.Enabled)
+            {
+                pressedButton.Text = "Продолжить";
+                timer1.Stop();
+            }
+            else
+            {
+                pressedButton.Text = "Пауза";
+                timer1.Start();
+            }
+        }
+
+        public void ClearMap()
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    map[i, j] = 0;
+                }
+            }
+        }
+
+        private void OnAgainButtonClick(object sender, EventArgs e)
+        {
+            timer1.Tick -= new EventHandler(update);
+            timer1.Stop();
+            ClearMap();
+            Init();
         }
     }
 }
