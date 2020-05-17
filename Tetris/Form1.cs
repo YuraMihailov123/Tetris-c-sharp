@@ -320,7 +320,7 @@ namespace Tetris
 
         private void OnPauseButtonClick(object sender, EventArgs e)
         {
-            var pressedButton = sender as ToolStripMenuItem;
+            var pressedButton = sender as Button;
             if (timer1.Enabled)
             {
                 pressedButton.Text = "Продолжить";
