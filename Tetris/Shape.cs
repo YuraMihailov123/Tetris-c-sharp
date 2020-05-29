@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
-    class Shape
+    public class Shape
     {
         public int x;
         public int y;
