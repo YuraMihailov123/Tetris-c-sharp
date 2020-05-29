@@ -21,8 +21,8 @@ namespace Tetris
         public Form1()
         {
             InitializeComponent();
-            if (!File.Exists(RecordsController.recordPath))
-                File.Create(RecordsController.recordPath);
+            //if (!File.Exists(RecordsController.recordPath))
+                //File.Create(RecordsController.recordPath);
             playerName = Microsoft.VisualBasic.Interaction.InputBox("Введите имя игрока","Настройка игрока","Новый игрок");
             if(playerName == "")
             {
@@ -34,7 +34,7 @@ namespace Tetris
 
         public void Init()
         {
-            RecordsController.ShowRecords(label3);
+            //RecordsController.ShowRecords(label3);
             this.Text = "Тетрис: Текущий игрок - " + playerName;
             MapController.size = 25;
             MapController.score = 0;
@@ -59,6 +59,7 @@ namespace Tetris
             switch (e.KeyCode)
             {
                 case Keys.A:
+
                     if (!MapController.IsIntersects())
                     {
                         MapController.ResetArea();
@@ -107,7 +108,7 @@ namespace Tetris
                 MapController.currentShape.ResetShape(3,0);
                 if (MapController.Collide())
                 {
-                    RecordsController.SaveRecords(playerName);
+                    //RecordsController.SaveRecords(playerName);
                     MapController.ClearMap();
                     timer1.Tick -= new EventHandler(update);
                     timer1.Stop();
